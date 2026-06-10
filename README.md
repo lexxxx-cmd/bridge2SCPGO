@@ -37,6 +37,23 @@ catkin_make
 source devel/setup.bash
 ```
 
+## Generating FastLIVO2 Output
+
+Enable PCD saving in FastLIVO2's config YAML:
+
+```yaml
+pcd_save:
+  pcd_save_en: true
+  type: 1
+```
+
+This produces the `all_pcd_body/` directory containing:
+
+- **`<timestamp>.pcd`** — registered point cloud per frame
+- **`lidar_poses.txt`** — TUM-format odometry poses for all frames
+
+Copy the entire `all_pcd_body/` directory into the package before running the bridge.
+
 ## Usage
 
 1. Place FastLIVO2 output (`.pcd` files + `lidar_poses.txt`) under:
